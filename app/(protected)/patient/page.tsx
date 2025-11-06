@@ -1,8 +1,12 @@
+import { UserButton } from '@clerk/nextjs'
 import React from 'react'
 
 const PetientDashboard = () => {
   return (
-    <div>PetientDashboard</div>
+    <div>
+      Patient Dashboard
+      <UserButton/>
+    </div>
   )
 }
 
