@@ -1,9 +1,9 @@
-import { Role } from "@prisma/client"
+import { Role } from "@/lib/generated/prisma/enums";
 
 export {}
 
 // Create a type for the roles
-export type Roles = "ADMIN" | "NURSE" | "DOCTOR" | "LAB_TECHNICIAN" | "PATIENT" | "CASHIER";
+export type Roles = Role;
 
 declare global {
   interface CustomJwtSessionClaims {
