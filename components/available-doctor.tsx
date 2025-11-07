@@ -56,16 +56,15 @@ export const AvailableDoctors = async ({ data }: DataProps) => {
         {data?.map((doc, id) => (
           <Card
             key={id}
-            className="border-none  w-full md:w-[300px] min-h-28 xl:w-full p-4 flex flex-row items-center gap-4 odd:bg-emerald-600/5 even:bg-yellow-600/5"
+            className="border-none w-full md:w-[300px] min-h-28 xl:w-full p-4 flex flex-row items-center gap-4 
+            odd:bg-emerald-600/5 even:bg-yellow-600/5"
           >
             <ProfileImage
               url={doc?.img}
               name={doc?.name}
-              className={`md:flex min-w-14 min-h-14 md:min-w-16 md:min-h-16 bg-blue-500`}
+              className={`md:flex min-w-14 min-h-14 md:min-w-16 md:min-h-16 bg-emerald-500`}
               textClassName="text-2xl font-semibold"
-              bgColor={doc?.colorCode!}
             />
-            {/* <p>{doc.colorCode}</p> */}
             <div>
               <h2 className="font-semibold text-lg md:text-xl">{doc?.name}</h2>
               <p className="text-base capitalize text-gray-600">
