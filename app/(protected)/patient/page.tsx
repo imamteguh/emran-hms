@@ -1,7 +1,9 @@
+import { AvailableDoctors } from '@/components/available-doctor';
 import { AppointmentChart } from '@/components/charts/appointment-chart';
 import { StatSummary } from '@/components/charts/stat-summary';
 import { StatCard } from '@/components/stat-card';
 import { Button } from '@/components/ui/button';
+import { AvailableDoctorProps } from '@/types/data-types';
 import { getPatientDashboardStatistics } from '@/utils/services/patient';
 import { UserButton } from '@clerk/nextjs'
 import { currentUser } from '@clerk/nextjs/server';
@@ -104,7 +106,7 @@ const PetientDashboard = async () => {
           <StatSummary data={appointmentCounts} total={totalAppointments} />
         </div>
 
-        {/* <AvailableDoctors data={availableDoctor as AvailableDoctorProps} /> */}
+        <AvailableDoctors data={availableDoctor as AvailableDoctorProps} />
 
         {/* <PatientRatingContainer /> */}
       </div>
