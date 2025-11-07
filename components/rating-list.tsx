@@ -21,7 +21,7 @@ export const RatingList = ({ data }: { data: any[] }) => {
         {data?.map((rate, id) => (
           <div key={rate?.id} className="even:bg-pink-50 odd:bg-yellow-50 p-3 rounded-lg">
             <div className="flex justify-between">
-              <div className="flex items-center gap-4">
+              <div className="flex flex-col sm:flex-row items-start sm:items-center sm:gap-4">
                 <p className="text-base font-medium">
                   {rate?.patient?.first_name + " " + rate?.patient?.last_name}
                 </p>

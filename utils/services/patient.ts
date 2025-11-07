@@ -1,5 +1,5 @@
 import db from "@/lib/db";
-import { getMonth, format, startOfYear, endOfMonth, isToday } from "date-fns";
+import { getMonth, format, startOfYear, endOfMonth, isToday, endOfYear } from "date-fns";
 import { daysOfWeek } from "..";
 
 type AppointmentStatus = "PENDING" | "SCHEDULED" | "COMPLETED" | "CANCELLED";
@@ -15,9 +15,9 @@ function isValidStatus(status: string): status is AppointmentStatus {
 
 const initializeMonthlyData = () => {
   const this_year = new Date().getFullYear();
-
   const months = Array.from(
-    { length: getMonth(new Date()) + 1 },
+    // { length: getMonth(new Date()) + 1 },
+    { length: 12 },
     (_, index) => ({
       name: format(new Date(this_year, index), "MMM"),
       appointment: 0,
@@ -42,7 +42,7 @@ export const processAppointments = async (appointments: Appointment[]) => {
 
       if (
         appointmentDate >= startOfYear(new Date()) &&
-        appointmentDate <= endOfMonth(new Date())
+        appointmentDate <= endOfYear(new Date())
       ) {
         monthlyData[monthIndex].appointment += 1;
 
@@ -127,6 +127,7 @@ export async function getPatientDashboardStatistics(id: string) {
     const { appointmentCounts, monthlyData } = await processAppointments(
       appointments
     );
+    
     const last5Records = appointments.slice(0, 5);
 
     const today = daysOfWeek[new Date().getDay()];
