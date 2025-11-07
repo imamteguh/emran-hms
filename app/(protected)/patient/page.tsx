@@ -2,6 +2,7 @@ import { AvailableDoctors } from '@/components/available-doctor';
 import { AppointmentChart } from '@/components/charts/appointment-chart';
 import { StatSummary } from '@/components/charts/stat-summary';
 import { StatCard } from '@/components/stat-card';
+import { RecentAppointments } from '@/components/tables/recent-appointment';
 import { Button } from '@/components/ui/button';
 import { AvailableDoctorProps } from '@/types/data-types';
 import { getPatientDashboardStatistics } from '@/utils/services/patient';
@@ -96,7 +97,7 @@ const PetientDashboard = async () => {
         </div>
 
         <div className="bg-white rounded-xl p-4 mt-8">
-          {/* <RecentAppointments data={last5Records} /> */}
+          <RecentAppointments data={last5Records} />
         </div>
       </div>
 
