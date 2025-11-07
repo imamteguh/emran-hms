@@ -1,4 +1,4 @@
-import { Role } from "@/lib/generated/prisma/enums";
+import { Role } from "@prisma/client";
 
 export {}
 

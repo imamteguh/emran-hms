@@ -5,7 +5,7 @@ import { useRouter } from "next/navigation";
 import React, { useEffect, useState } from "react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "./ui/card";
 import { Form } from "./ui/form";
-import { useForm } from "react-hook-form";
+import { useForm, SubmitHandler } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { PatientFormSchema } from "@/lib/schema";
 import { z } from "zod";
@@ -14,7 +14,7 @@ import { GENDER, MARITAL_STATUS, RELATION } from "@/lib";
 import { Button } from "./ui/button";
 import { toast } from "sonner";
 import { createNewPatient, updatePatient } from "@/app/actions/patient";
-import { Patient } from "@/lib/generated/prisma/client";
+import { Patient } from "@prisma/client";
 
 interface DataProps {
   data?: Patient;
@@ -54,8 +54,8 @@ export const NewPatient = ({ data, type }: DataProps) => {
     },
   });
 
-  const onSubmit = async (
-    values: z.infer<typeof PatientFormSchema>
+  const onSubmit: SubmitHandler<z.infer<typeof PatientFormSchema>> = async (
+    values
   ) => {
     setLoading(true);
 
