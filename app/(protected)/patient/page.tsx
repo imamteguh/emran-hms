@@ -1,6 +1,7 @@
 import { AvailableDoctors } from '@/components/available-doctor';
 import { AppointmentChart } from '@/components/charts/appointment-chart';
 import { StatSummary } from '@/components/charts/stat-summary';
+import { PatientRatingContainer } from '@/components/patient-rating-container';
 import { StatCard } from '@/components/stat-card';
 import { RecentAppointments } from '@/components/tables/recent-appointment';
 import { Button } from '@/components/ui/button';
@@ -102,14 +103,14 @@ const PetientDashboard = async () => {
       </div>
 
       {/* RIGHT */}
-      <div className="w-full xl:w-[30%]">
-        <div className="w-full h-[450px] mb-8">
+      <div className="w-full xl:w-[30%] space-y-8">
+        <div className="w-full h-[450px]">
           <StatSummary data={appointmentCounts} total={totalAppointments} />
         </div>
 
         <AvailableDoctors data={availableDoctor as AvailableDoctorProps} />
 
-        {/* <PatientRatingContainer /> */}
+        <PatientRatingContainer />
       </div>
     </div>
   )
