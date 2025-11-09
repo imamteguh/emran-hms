@@ -120,7 +120,6 @@ export async function getPatientDashboardStatistics(id: string) {
           },
         },
       },
-
       orderBy: { appointment_date: "desc" },
     });
 
@@ -196,9 +195,7 @@ export async function getPatientFullDataById(id: string) {
     const patient = await db.patient.findFirst({
       where: {
         OR: [
-          {
-            id,
-          },
+          { id },
           { email: id },
         ],
       },

@@ -13,6 +13,7 @@ export async function getDoctors() {
     return { success: false, message: "Internal Server Error", status: 500 };
   }
 }
+
 export async function getDoctorDashboardStats() {
   try {
     const { userId } = await auth();
