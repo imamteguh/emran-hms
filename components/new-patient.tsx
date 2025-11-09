@@ -14,6 +14,7 @@ import { GENDER, MARITAL_STATUS, RELATION } from "@/lib";
 import { Button } from "./ui/button";
 import { toast } from "sonner";
 import { createNewPatient, updatePatient } from "@/app/actions/patient";
+import { format } from "date-fns";
 import { Patient } from "@prisma/client";
 
 interface DataProps {
@@ -86,6 +87,7 @@ export const NewPatient = ({ data, type }: DataProps) => {
           last_name: data.last_name,
           email: data.email,
           phone: data.phone,
+          // date_of_birth: new Date(format(data?.date_of_birth, "dd/MM/yyyy")),
           date_of_birth: new Date(data.date_of_birth),
           gender: data.gender,
           marital_status: data.marital_status as
@@ -175,7 +177,6 @@ export const NewPatient = ({ data, type }: DataProps) => {
                   name="date_of_birth"
                   placeholder="01-05-2000"
                   label="Date of Birth"
-                  inputType="date"
                 />
               </div>
               <div className="flex flex-col lg:flex-row  gap-y-6 items-center gap-2 md:gap-x-4">
