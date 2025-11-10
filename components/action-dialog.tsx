@@ -106,7 +106,7 @@ export const ActionDialog = ({
         <DialogTrigger asChild>
           <Button
             variant={"outline"}
-            className="flex items-center justify-center rounded-full text-blue-600/10 hover:underline"
+            className="flex items-center justify-center rounded-full text-blue-600 hover:underline"
           >
             View
           </Button>
@@ -122,8 +122,7 @@ export const ActionDialog = ({
               <ProfileImage
                 url={data?.img!}
                 name={data?.name}
-                className="xl:size-20"
-                bgColor={data?.colorCode!}
+                className="xl:size-20 bg-blue-500"
                 textClassName="xl:text-2xl"
               />
 
@@ -139,14 +138,15 @@ export const ActionDialog = ({
 
           <div className="mt-10 space-y-6">
             <div className="flex flex-col md:flex-row md:flex-wrap md:items-center gap-y-4 md:gap-x-0 xl:justify-between">
-              <SmallCard label="Full Name" value={data?.name} />
+              {/* <SmallCard label="Full Name" value={data?.name} /> */}
               <SmallCard label="Email Address" value={data?.email} />
               <SmallCard label="Phone Number" value={data?.phone} />
-            </div>
-
-            <div>
               <SmallCard label="Address" value={data?.address || "N/A"} />
             </div>
+
+            {/* <div>
+              <SmallCard label="Address" value={data?.address || "N/A"} />
+            </div> */}
 
             <div className="flex flex-col md:flex-row md:flex-wrap md:items-center gap-y-4 md:gap-x-0 xl:justify-between">
               <SmallCard label="Role" value={data?.role} />
