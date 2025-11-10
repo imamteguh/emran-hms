@@ -63,6 +63,7 @@ interface PatientProps extends Patient {
     }[];
   }[];
 }
+
 const PatientList = async (props: SearchParamsProps) => {
   const searchParams = await props.searchParams;
   const page = (searchParams?.p || "1") as string;
