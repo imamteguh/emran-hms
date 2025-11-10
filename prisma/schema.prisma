@@ -137,7 +137,7 @@ model Appointment {
   type             String
   note             String?
   patient          Patient           @relation(fields: [patient_id], references: [id], onDelete: Cascade)
-  doctor           Doctor            @relation(fields: [doctor_id], references: [id])
+  doctor           Doctor            @relation(fields: [doctor_id], references: [id], onDelete: Cascade)
   bills            Payment[]
   medical          MedicalRecords[]
   reason           String?

@@ -104,7 +104,7 @@ export const workingDaySchema = z.object({
     "sunday",
   ]),
   start_time: z.string(),
-  close_time: z.string(),
+  end_time: z.string(),
 });
 export const WorkingDaysSchema = z.array(workingDaySchema).optional();
 

@@ -84,12 +84,12 @@ const RenderInput = ({ field, props }: { field: any; props: InputProps }) => {
 
     case "radio":
       return (
-        <div className="w-full">
+        <div className="w-full space-y-2">
           <FormLabel>{props.label}</FormLabel>
           <RadioGroup
             defaultValue={props.defaultValue}
             onChange={field.onChange}
-            className="flex gap-4"
+            className="flex gap-3"
           >
             {props?.selectList?.map((i, id) => (
               <div className="flex items-center w-full" key={id}>
@@ -146,7 +146,7 @@ export const CustomInput = (props: InputProps) => {
 type Day = {
   day: string;
   start_time?: string;
-  close_time?: string;
+  end_time?: string;
 };
 interface SwitchProps {
   data: { label: string; value: string }[];
@@ -166,7 +166,7 @@ export const SwitchInput = ({ data, setWorkSchedule }: SwitchProps) => {
         if (field === true) {
           return [
             ...prevDays,
-            { day, start_time: "09:00", close_time: "17:00" },
+            { day, start_time: "09:00", end_time: "17:00" },
           ];
         } else {
           return [...prevDays, { day, [field]: value }];
@@ -180,14 +180,14 @@ export const SwitchInput = ({ data, setWorkSchedule }: SwitchProps) => {
       {data?.map((el, id) => (
         <div
           key={id}
-          className="w-full  flex items-center space-y-3 border-t border-t-gray-200  py-3"
+          className="w-full flex items-center space-y-3 border-t border-t-gray-200 py-3"
         >
           <Switch
             id={el.value}
             className="data-[state=checked]:bg-blue-600 peer"
             onCheckedChange={(e) => handleChange(el.value, true, "09:00")}
           />
-          <Label htmlFor={el.value} className="w-20 capitalize">
+          <Label htmlFor={el.value} className="w-20 capitalize ms-2">
             {el.value}
           </Label>
 
@@ -195,7 +195,7 @@ export const SwitchInput = ({ data, setWorkSchedule }: SwitchProps) => {
             Not working on this day
           </Label>
 
-          <div className="hidden peer-data-[state=checked]:flex items-center gap-2 pl-6:">
+          <div className="hidden peer-data-[state=checked]:flex items-center gap-2 pl-6">
             <Input
               name={`${el.label}.start_time`}
               type="time"
@@ -205,11 +205,11 @@ export const SwitchInput = ({ data, setWorkSchedule }: SwitchProps) => {
               }
             />
             <Input
-              name={`${el.label}.close_time`}
+              name={`${el.label}.end_time`}
               type="time"
               defaultValue="17:00"
               onChange={(e) =>
-                handleChange(el.value, "close_time", e.target.value)
+                handleChange(el.value, "end_time", e.target.value)
               }
             />
           </div>
