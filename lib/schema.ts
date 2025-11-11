@@ -140,7 +140,7 @@ export const VitalSignsSchema = z.object({
   body_temperature: z.coerce.number({
     message: "Enter recorded body temperature",
   }),
-  heartRate: z.string({ message: "Enter recorded heartbeat rate" }),
+  heart_rate: z.string({ message: "Enter recorded heartbeat rate" }),
   systolic: z.coerce.number({
     message: "Enter recorded systolic blood pressure",
   }),
@@ -157,8 +157,8 @@ export const DiagnosisSchema = z.object({
   patient_id: z.string(),
   medical_id: z.string(),
   doctor_id: z.string(),
-  symptoms: z.string({ message: "Symptoms required" }),
-  diagnosis: z.string({ message: "Diagnosis required" }),
+  symptoms: z.string({ required_error: "Symptoms required" }).min(2, "Symptoms required"),
+  diagnosis: z.string({ required_error: "Diagnosis required" }).min(2, "Diagnosis required"),
   notes: z.string().optional(),
   prescribed_medications: z.string().optional(),
   follow_up_plan: z.string().optional(),

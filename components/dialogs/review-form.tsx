@@ -81,8 +81,7 @@ export const ReviewForm = ({ staffId }: { staffId: string }) => {
       <Dialog>
         <DialogTrigger asChild>
           <Button
-            size={"sm"}
-            className="px-4 py-2 rounded-lg bg-black/10 text-black hover:bg-transparent font-light"
+            className="px-4 py-5 cursor-pointer rounded-lg bg-black/10 text-black hover:bg-transparent font-light"
           >
             <Plus /> Add New Review
           </Button>
